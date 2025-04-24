@@ -12,10 +12,10 @@ namespace Todo.Infrastructure
         {
             services.AddDbContext<DatabaseContext>(options =>
             {
-                //options.UseSqlite(Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? "Data Source=db", 
-                //    options => options.MigrationsAssembly(
-                //        typeof(DatabaseContext).Assembly.GetName().Name));
-                options.UseSqlite("Data Source=main_db");
+                options.UseSqlite(Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? "Data Source=db",
+                    options => options.MigrationsAssembly(
+                        typeof(DatabaseContext).Assembly.GetName().Name));
+                //options.UseSqlite("Data Source=main_db");
             });
 
             services.AddScoped<DatabaseContext>();

@@ -53,17 +53,20 @@ namespace Todo.Web
             builder.Services.AddRefitClient<IUserClient>()
                 .ConfigureHttpClient(e =>
                 {
-                    e.BaseAddress = new Uri("http://localhost:5000/api/user");
+                    e.BaseAddress = new Uri($"{Environment.GetEnvironmentVariable("WEB_API_URL")}api/user");
+                    //e.BaseAddress = new Uri("http://localhost:5000/api/user");
                 });
             builder.Services.AddRefitClient<ITodoListClient>()
                 .ConfigureHttpClient(e =>
                 {
-                    e.BaseAddress = new Uri("http://localhost:5000/api/todolist");
+                    e.BaseAddress = new Uri($"{Environment.GetEnvironmentVariable("WEB_API_URL")}api/todolist");
+                    //e.BaseAddress = new Uri("http://localhost:5000/api/todolist");
                 });
             builder.Services.AddRefitClient<ITodoTaskClient>()
                 .ConfigureHttpClient(e =>
                 {
-                    e.BaseAddress = new Uri("http://localhost:5000/api/todotask");
+                    e.BaseAddress = new Uri($"{Environment.GetEnvironmentVariable("WEB_API_URL")}api/todotask");
+                    //e.BaseAddress = new Uri("http://localhost:5000/api/todotask");
                 });
 
             var app = builder.Build();

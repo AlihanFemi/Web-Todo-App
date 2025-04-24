@@ -28,17 +28,6 @@ services:
       - CONNECTION_STRING=Data Source=db
     networks: 
       - todo_network
-    depends_on:
-      - database
 
-  database:
-    container_name: database
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    networks:
-      - todo_network
 networks:
   todo_network: null
